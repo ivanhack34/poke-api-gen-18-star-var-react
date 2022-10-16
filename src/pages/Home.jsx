@@ -3,12 +3,12 @@ import FomrHome from '../components/home/FomrHome'
 
 const Home = () => {
   return (
-    <div className='pokedex'>
+    <article className='pokedex'>
       <h1 className='pokedex__title'>Pokedex</h1>
       <h2 className='pokedex__subtitle'>Hi Trainer!</h2>
       <p className='pokedex__text'>Give me your to see the pokedex</p>
       <FomrHome/>
-    </div>
+    </article>
   )
 }
 
