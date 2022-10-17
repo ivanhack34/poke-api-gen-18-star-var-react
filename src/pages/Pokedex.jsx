@@ -22,7 +22,7 @@ const Pokedex = () => {
         .catch(err => console.log(err))
     }else{
       // Si quiero todos los pokemons
-      const URL = 'https://pokeapi.co/api/v2/pokemon?limit=10000&offset=0.'
+      const URL = 'https://pokeapi.co/api/v2/pokemon?limit=1200&offset=0.'
       axios.get(URL)
         .then(res => setPokemons(res.data.results))
         .catch(err => console.log(err))

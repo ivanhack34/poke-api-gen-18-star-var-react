@@ -21,27 +21,27 @@ const CardPoke = ({url}) => {
     
 
   return (
-    <article className='card-poke' onClick={handleClick}>
-        <header className='card-poke__header'>
-            <img src={pokemon?.sprites.other['official-artwork'].front_default} alt="" />
+    <article className={`card-poke border-${pokemon?.types[0].type.name}`} onClick={handleClick}>
+        <header className={`card-poke__header bg-${pokemon?.types[0].type.name}`}>
+            <img className='card-poke__sprite' src={pokemon?.sprites.other['official-artwork'].front_default} alt="" />
         </header>
         <section className='card-poke__body'>
-            <h3 className='card-poke_name'>{pokemon?.name}</h3>
+            <h3 className={`card-poke__name letter-${pokemon?.types[0].type.name}`}>{pokemon?.name}</h3>
             <ul className='card-poke__type-container'>
-                {
+                { 
                     pokemon?.types.map(type => (
                         <li key={type.slot} className='card-poke__type'>{type.type.name}</li>
                     ))
                 }
             </ul>
-            <p className="card-poke_type-label">Type</p>
+            <p className="card-poke__type-label">Type</p>
         </section>
-        <ul className="card-poke_stats-container">
+        <ul className="card-poke__stat-container">
             {
                 pokemon?.stats.map(stat => (
                     <li key={stat.stat.name} className="card-poke__stat">
                         <span className="card-poke__stat-label">{stat.stat.name}</span>
-                        <span className="card-poke__stat-number">{stat.base_stat}</span>
+                        <span className={`card-poke__stat-number letter-${pokemon?.types[0].type.name}`}>{stat.base_stat}</span>
                     </li>
                 ))
             }
