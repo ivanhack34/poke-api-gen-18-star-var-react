@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import PokedexById from './pages/PokedexById'
 import Pokedex from './pages/Pokedex'
 import ProtectedRoutes from './pages/ProtectedRoutes'
+import Footer from './components/shared/Footer'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Route path='/pokedex/:id' element={<PokedexById/>}/>
       </Route>
      </Routes>
+     <Footer />
     </div>
   )
 }

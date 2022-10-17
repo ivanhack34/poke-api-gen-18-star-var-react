@@ -1,12 +1,15 @@
 import React from 'react'
 import FomrHome from '../components/home/FomrHome'
+import './style/home.css'
 
 const Home = () => {
   return (
     <article className='pokedex'>
-      <h1 className='pokedex__title'>Pokedex</h1>
-      <h2 className='pokedex__subtitle'>Hi Trainer!</h2>
-      <p className='pokedex__text'>Give me your to see the pokedex</p>
+      <img className='pokedex__img' src="/images/home/pokedex.png" alt="" />
+      <header className='pokedex__header'>
+        <h2 className='pokedex__subtitle'>Hi Trainer!</h2>
+        <p className='pokedex__text'>Give me your name to see the pokedex</p>
+      </header>
       <FomrHome/>
     </article>
   )
