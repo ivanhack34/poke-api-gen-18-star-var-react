@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import CardPoke from '../components/pokedex/CardPoke'
 import InputSearch from '../components/pokedex/InputSearch'
+import Pagination from '../components/pokedex/Pagination'
 import SelectByType from '../components/pokedex/SelectByType'
 
 const Pokedex = () => {
@@ -32,6 +33,14 @@ const Pokedex = () => {
 
   const userName = useSelector(state => state.userName)
 
+  // Logica de paginacion
+
+  const [page, setPage] = useState(9)
+  const [pokePerPage, setPokePerPage] = useState(8)
+  const initialPoke = (page-1) * pokePerPage
+  const finalPoke = /*initialPoke + pokePerPage + 1*/ page * pokePerPage
+
+
   return (
     <div>
       <header>
@@ -40,12 +49,17 @@ const Pokedex = () => {
       </header>
       <aside>
         <InputSearch />
-        <SelectByType setTypeSelected={setTypeSelected}/>
+        <SelectByType setTypeSelected={setTypeSelected} setPage={setPage}/>
+        <Pagination 
+        page={page}
+        pagesLength={pokemons && Math.ceil(pokemons.length / pokePerPage)}
+        setPage={setPage}
+        />
       </aside>
       <main>
         <div className="card-container">
           {
-            pokemons?.map(pokemon => (
+            pokemons?.slice(initialPoke, finalPoke).map(pokemon => (
               <CardPoke 
               key={pokemon.url}
               url={pokemon.url}
@@ -54,6 +68,11 @@ const Pokedex = () => {
           }
         </div>
       </main>
+      <Pagination 
+        page={page}
+        pagesLength={pokemons && Math.ceil(pokemons.length / pokePerPage)}
+        setPage={setPage}
+        />
     </div>
   )
 }
