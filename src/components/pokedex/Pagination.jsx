@@ -26,7 +26,13 @@ const Pagination = ({page, pagesLength, setPage}) => {
     const handlePage = currentPage => {
         setPage(currentPage)
     }
-
+    const handleFirst = () => {
+        setPage(1)
+    }
+    const handleLast = () => {
+        setPage(pagesLength)
+    }
+    
   return (
     <div className='pagination'>
 
@@ -34,7 +40,7 @@ const Pagination = ({page, pagesLength, setPage}) => {
             page > 1 &&
             <div onClick={handlePrev} className='pagination__prev pagination__active'>&#60;</div>
         }
-        <div>...</div> 
+        <div onClick={handleFirst} className='pagination__page pagination__active'>...</div> 
         <ul className='pagination__container'>
             {
                 arrePages.map(e => (
@@ -44,7 +50,7 @@ const Pagination = ({page, pagesLength, setPage}) => {
                 ))
             }
         </ul>
-        <div>...</div>
+        <div onClick={handleLast} className='pagination__page pagination__active'>...</div>
         {
             page < pagesLength &&
             <div onClick={handleNext} className='pagination_next pagination__active'>&#62;</div>
