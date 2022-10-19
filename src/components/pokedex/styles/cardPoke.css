@@ -6,6 +6,19 @@
     border-width: 10px;
     border-style: solid;
     border-style: black;
+    cursor: pointer;
+    box-shadow: 15px 10px 10px grey;
+    transition: 1s;
+}
+.card-poke:hover{
+    transform: perspective(100px) scale3d(1, 0.7, 0.2) skew(5deg, 2deg);
+    transform-origin: center;
+    transition: 0.5s;
+}
+.card-poke:active{
+    transform: perspective(100px) scale3d(0, 0.1, 0.1) skew(5deg, 2deg);
+    transform-origin: center;
+    transition: 0.5s;
 }
 
 .card-poke__header{

@@ -5,6 +5,7 @@ import CardPoke from '../components/pokedex/CardPoke'
 import InputSearch from '../components/pokedex/InputSearch'
 import Pagination from '../components/pokedex/Pagination'
 import SelectByType from '../components/pokedex/SelectByType'
+import './style/pokedex.css'
 
 const Pokedex = () => {
 
@@ -42,19 +43,21 @@ const Pokedex = () => {
 
 
   return (
-    <div>
+    <div className='pokedex-container'>
       <header>
         <h1>Pokedex</h1>
         <p>Welcome <span>{userName}</span>, here you can find your favorite pokemon.</p>
       </header>
       <aside>
+        <div className="aside">
         <InputSearch />
         <SelectByType setTypeSelected={setTypeSelected} setPage={setPage}/>
         <Pagination 
-        page={page}
-        pagesLength={pokemons && Math.ceil(pokemons.length / pokePerPage)}
-        setPage={setPage}
+          page={page}
+          pagesLength={pokemons && Math.ceil(pokemons.length / pokePerPage)}
+          setPage={setPage}
         />
+        </div>
       </aside>
       <main>
         <div className="card-container">
@@ -68,11 +71,13 @@ const Pokedex = () => {
           }
         </div>
       </main>
+      <div className="aside">
       <Pagination 
         page={page}
         pagesLength={pokemons && Math.ceil(pokemons.length / pokePerPage)}
         setPage={setPage}
         />
+        </div>
     </div>
   )
 }
