@@ -4,11 +4,11 @@ import './style/home.css'
 
 const Home = () => {
   return (
-    <article className='pokedex'>
-      <img className='pokedex__img' src="/images/home/pokedex.png" alt="" />
-      <header className='pokedex__header'>
-        <h2 className='pokedex__subtitle'>Hi Trainer!</h2>
-        <p className='pokedex__text'>Give me your name to see the pokedex</p>
+    <article className='pokedexHome'>
+      <img className='pokedexHome__img' src="/images/home/pokedex.png" alt="" />
+      <header className='pokedexHome__header'>
+        <h2 className='pokedexHome__subtitle'>Hi Trainer!</h2>
+        <p className='pokedexHome__text'>Give me your name to see the pokedex</p>
       </header>
       <FomrHome/>
     </article>

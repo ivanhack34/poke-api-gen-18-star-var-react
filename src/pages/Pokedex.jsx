@@ -14,15 +14,15 @@ const Pokedex = () => {
   const [typeSelected, setTypeSelected] = useState('All Pokemons')
 
   useEffect(() => {
-    if(typeSelected != 'All Pokemons'){
+    if (typeSelected != 'All Pokemons') {
       // Si se selecciono un tipo
       axios.get(typeSelected)
         .then(res => {
           const result = res.data.pokemon.map(e => e.pokemon)
           setPokemons(result)
-          })
+        })
         .catch(err => console.log(err))
-    }else{
+    } else {
       // Si quiero todos los pokemons
       const URL = 'https://pokeapi.co/api/v2/pokemon?limit=1200&offset=0.'
       axios.get(URL)
@@ -30,7 +30,7 @@ const Pokedex = () => {
         .catch(err => console.log(err))
     }
   }, [typeSelected])
-  
+
 
   const userName = useSelector(state => state.userName)
 
@@ -38,7 +38,7 @@ const Pokedex = () => {
 
   const [page, setPage] = useState(1)
   const [pokePerPage, setPokePerPage] = useState(9)
-  const initialPoke = (page-1) * pokePerPage
+  const initialPoke = (page - 1) * pokePerPage
   const finalPoke = /*initialPoke + pokePerPage + 1*/ page * pokePerPage
 
 
@@ -50,34 +50,34 @@ const Pokedex = () => {
       </header>
       <aside>
         <div className="aside">
-        <InputSearch />
-        <SelectByType setTypeSelected={setTypeSelected} setPage={setPage}/>
-        <Pagination 
-          page={page}
-          pagesLength={pokemons && Math.ceil(pokemons.length / pokePerPage)}
-          setPage={setPage}
-        />
+          <InputSearch />
+          <SelectByType setTypeSelected={setTypeSelected} setPage={setPage} />
+          <Pagination
+            page={page}
+            pagesLength={pokemons && Math.ceil(pokemons.length / pokePerPage)}
+            setPage={setPage}
+          />
         </div>
       </aside>
       <main>
         <div className="card-container">
           {
             pokemons?.slice(initialPoke, finalPoke).map(pokemon => (
-              <CardPoke 
-              key={pokemon.url}
-              url={pokemon.url}
+              <CardPoke
+                key={pokemon.url}
+                url={pokemon.url}
               />
             ))
           }
         </div>
       </main>
       <div className="aside">
-      <Pagination 
-        page={page}
-        pagesLength={pokemons && Math.ceil(pokemons.length / pokePerPage)}
-        setPage={setPage}
+        <Pagination
+          page={page}
+          pagesLength={pokemons && Math.ceil(pokemons.length / pokePerPage)}
+          setPage={setPage}
         />
-        </div>
+      </div>
     </div>
   )
 }
