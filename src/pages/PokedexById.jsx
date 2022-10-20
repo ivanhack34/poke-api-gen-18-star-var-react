@@ -35,15 +35,15 @@ const PokedexById = () => {
   return (
     <article>
       <header>
-        <div className='pokedex__img' onClick={handleToPokedex}>
-          <img src="/images/home/pokedex.png" alt="pokedex__img" />
+        <div className='pokedex-id__pokemon-img' onClick={handleToPokedex}>
+          <img className='pokedex-id__img' src="/images/home/pokedex.png" alt="pokedex__img" />
         </div>
       </header>
       <main className='pokedexById-container'>
       <section className='pokemon-data'>
-        <div className="header">
-          <div className="pokemon-img">
-            <img src={pokemon?.sprites.other['official-artwork'].front_default} alt="" />
+        <div className="pokedex-id__header">
+          <div className="pokedex-id__pokemon-img">
+            <img className='pokedex-id__img' src={pokemon?.sprites.other['official-artwork'].front_default} alt="" />
           </div>
         </div>
         <div className='pokemon-id'>{`#${pokemon?.id}`}</div>
